@@ -1,5 +1,24 @@
 // server.mjs
 import { createServer } from 'node:http';
+import mysql from 'mysql';
+
+//ERROR Auth mode not supported? 
+let connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+});
+
+
+
+connection.connect((err) => {
+    if (err) return console.error(err.message);
+
+    console.log('Connected to MySQL Server.');
+})
+
 
 const server = createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
