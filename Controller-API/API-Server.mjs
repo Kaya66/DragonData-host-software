@@ -4,7 +4,7 @@ import mysql2 from 'mysql2';
 import dotenv from 'dotenv';
 dotenv.config();
 
-//ERROR Auth mode not supported? 
+//Setup MySQL Connection
 let connection = mysql2.createConnection({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -15,21 +15,26 @@ let connection = mysql2.createConnection({
 
 
 
+
+//Create a promise to pull info from mysql server and populate
+
+
+//Connect to MySQL server
 connection.connect((err) => {
     if (err) return console.error(err.message);
 
     console.log('Connected to MySQL Server.');
 })
 
-
+//Create simple http server on port 3000
 const server = createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Hello World!\n');
 });
 
-// starts a simple http server locally on port 3000
+
+// run with `node server.mjs`
 server.listen(3000, '127.0.0.1', () => {
   console.log('Listening on 127.0.0.1:3000');
 });
 
-// run with `node server.mjs`
