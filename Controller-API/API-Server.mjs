@@ -1,35 +1,46 @@
 // server.mjs
 import { createServer } from 'node:http';
-import mysql2 from 'mysql2';
+import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 dotenv.config();
 
-//Setup MySQL Connection
-const connection = mysql2.createConnection({
+//Setup MySQL2 Pool Connection
+const sqlPool = mysql.createPool({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 2,
+    maxIdle: 1,
+    idleTimeout: 1000,
+    queueLimit: 0,
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 0,
 });
 
-//Connect to MySQL server
-connection.connect ( (err) => {
-  if (err) return console.error(err.message);
-  console.log('Connected to MySQL Server.');
-})
+let sqlQuery = 'select * FROM Alphabet';
 
-let sql = 'SHOW COLUMNS FROM Alphabet';
-connection.query(sql, function (err, results, fields){
-  console.log(results);
-  console.log(fields);
+//using mysql2/promise, set up async await to get query and return it.
+async function test(){
+  try {
+    const [rows, fields] = await sqlPool.query(sqlQuery);
+    if(rows != ''){
+      console.log(rows)
+    }
+    if(fields != ''){
+      console.log(fields)
+    }
+
+  } catch (err) {
+    console.log(err);
   }
-);
+}
 
 //Create simple http server on port 3000
 const server = createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  
   res.end('Hello World!\n');
 });
 
