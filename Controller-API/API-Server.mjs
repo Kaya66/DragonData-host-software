@@ -37,7 +37,7 @@ async function test(){
     console.log(err);
   }
 }
-
+console.log(test());
 //Create simple http server on port 3000
 const server = createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
