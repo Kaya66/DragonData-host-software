@@ -2,6 +2,18 @@
 import { createServer } from 'node:http';
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
+import {SqlConector} from './SqlConnector.mjs';
+
+const SqlConnect = new SqlConector();
+
+
+SqlConnect.getQuery("select * from Dictionary");
+
+
+
+
+
+/*
 dotenv.config();
 
 //Setup MySQL2 Pool Connection
@@ -20,7 +32,7 @@ const sqlPool = mysql.createPool({
     keepAliveInitialDelay: 0,
 });
 
-let sqlQuery = 'select * FROM Alphabet';
+let sqlQuery = 'select * FROM Dictionary';
 
 //using mysql2/promise, set up async await to get query and return it.
 async function test(){
@@ -38,6 +50,11 @@ async function test(){
   }
 }
 console.log(test());
+*/
+
+
+
+
 //Create simple http server on port 3000
 const server = createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
