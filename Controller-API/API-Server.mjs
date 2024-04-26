@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 import { SqlConnector } from './SqlConnector.mjs';
 
 
+
 let SqlConnect = new SqlConnector();
 SqlConnect.getQuery("select * from Dictionary");
 
