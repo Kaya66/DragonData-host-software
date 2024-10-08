@@ -1,4 +1,4 @@
-# MVC web stack 
+# CMS web stack 
 This is the software stack I am developing for my personal server. 
 It is based on the server view model architecture and will contain the following:
 MySQL backend for data storage. 
