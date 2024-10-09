@@ -1,9 +1,11 @@
 // server.mjs
 import { createServer } from 'node:http';
-import { SqlConnector } from './SqlConnector.mjs';
+import { SQLrequest } from './SqlParser.mjs';
+//import { SqlConnector } from './SqlConnector.mjs';
 
-let SqlConnect = new SqlConnector();
-SqlConnect.getQuery("select * from Dictionary where Eng_Word = 'Bird' ");
+let request = new SQLrequest();
+SQLrequest.request("Noun", 4);
+
 
 //Create simple http server on port 3000
 const server = createServer ( (req, res) => {

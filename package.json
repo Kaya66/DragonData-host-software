@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "dotenv": "^16.4.5",
-    "mysql2": "^3.9.7",
-    "node": "^22.0.0"
+    "mysql2": "^3.11.3",
+    "node": "^22.9.0",
+    "sequelize": "^6.37.4"
   }
 }
