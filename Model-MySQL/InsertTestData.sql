@@ -1,5 +1,5 @@
-use A_Core_Language;
-show columns from Dictionary;
-insert into Dictionary (A_Core_Word, Eng_Word, Word_Definition, Part_Of_Speech)
+USE Acore;
+SHOW COLUMNS FROM words;
+INSERT INTO words (word, english_word, Word_Definition, pos)
 values ( "Tiru", "Bird", "An Avian of Earth", "Noun" );
 

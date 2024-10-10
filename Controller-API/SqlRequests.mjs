@@ -1,32 +1,32 @@
 import { Sequelize, DataTypes, QueryTypes } from 'sequelize';
 
 
-const sequelize = new Sequelize('A_Core_Language', 'ApiUser', '@piUs3rP@ssw0rd', {
+const sequelize = new Sequelize('ACore', 'ApiUser', '@piUs3rP@ssw0rd', {
     host: '192.168.2.110',
     dialect: 'mysql'
 });
 
 
-const LanguageModel = sequelize.define(
-    'Dictionary',
+const words = sequelize.define(
+    'Words',
     {
-        A_Core_Word:{
+        word:{
             type: DataTypes.STRING,
             AllowNull: false,
             primaryKey: true,
         },
-        Eng_Word:{
+        english_word:{
             type: DataTypes.STRING,
             AllowNull: true,
         },
-        Word_Definition:{
+        definition:{
             type: DataTypes.STRING,
             AllowNull: false,
         },
-        Part_Of_Speech:{
-            type: DataTypes.STRING,
-            AllowNull: true,
-        },
+        pos: {
+            type: DataTypes.ENUM('verb', 'noun', 'adjective', 'adverb', 'interjection'),
+            allowNull: false
+          }
     },
     {
         freezeTableName: true,
@@ -41,15 +41,15 @@ export class SQLrequest {
 
     static async create(acore, eng, def, speech){
         try {
-            const result = await LanguageModel.create(
+            const RESULT = await LanguageModel.create(
                 {
-                    A_Core_Word: acore,
-                    Eng_Word: eng,
-                    Word_Definition: def,
-                    Part_Of_Speech: speech
+                    word: acore,
+                    english_word: eng,
+                    definition: def,
+                    pos: speech
                 }
             );
-            console.log(result);
+            console.log(RESULT);
         }catch (error) {
             console.error('Unable to create new entry. ', error);
             }
@@ -57,11 +57,11 @@ export class SQLrequest {
 
     static async read(req, col){
         try {
-            const result = await sequelize.query(`SELECT * FROM Dictionary WHERE 
+            const RESULT = await sequelize.query(`SELECT * FROM words WHERE 
                 ${["A_Core_Word", "Eng_Word", "Word_Definition", "Part_Of_Speech"][col - 1]} = "${req}"`, {
                 type: QueryTypes.SELECT,
             });
-            console.log(result);
+            console.log(RESULT);
         }catch (error) {
             console.error('Unable to request data. ', error);
             }
@@ -69,34 +69,10 @@ export class SQLrequest {
 
     static async readAll(){
         try {
-            const result = await sequelize.query(`SELECT * FROM Dictionary`, {type: QueryTypes.SELECT});
-            console.log(result);
+            const RESULT = await sequelize.query(`SELECT * FROM words`, {type: QueryTypes.SELECT});
+            console.log(RESULT);
         }catch (error) {
             console.error('Unable to request data. ', error);
         }
-    }
-
-    static async update(req, col){
-        try {
-            const result = await sequelize.query(`SELECT * FROM Dictionary WHERE 
-                ${["A_Core_Word", "Eng_Word", "Word_Definition", "Part_Of_Speech"][col - 1]} = "${req}"`, {
-                type: QueryTypes.SELECT,
-            });
-            console.log(result);
-        }catch (error) {
-            console.error('Unable to connect to the database:', error);
-            }
-    }
-
-    static async delete(req, col){
-        try {
-            const result = await sequelize.query(`SELECT * FROM Dictionary WHERE 
-                ${["A_Core_Word", "Eng_Word", "Word_Definition", "Part_Of_Speech"][col - 1]} = "${req}"`, {
-                type: QueryTypes.SELECT,
-            });
-            console.log(result);
-        }catch (error) {
-            console.error('Unable to connect to the database:', error);
-            }
     }
 }
