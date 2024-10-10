@@ -11,8 +11,8 @@ CREATE TABLE ACore.words (
 
 --DROP TABLE IF EXISTS Alphabet;
 
-CREATE DATABASE Users;
-CREATE TABLE Users.login (
+CREATE DATABASE Auth;
+CREATE TABLE Auth.logins (
   username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL
 )
