@@ -6,7 +6,6 @@ const sequelize = new Sequelize('ACore', 'ApiUser', '@piUs3rP@ssw0rd', {
     dialect: 'mysql'
 });
 
-
 const words = sequelize.define(
     'Words',
     {
@@ -70,9 +69,11 @@ export class SQLrequest {
     static async readAll(){
         try {
             const RESULT = await sequelize.query(`SELECT * FROM words`, {type: QueryTypes.SELECT});
+            return RESULT;
             console.log(RESULT);
         }catch (error) {
-            console.error('Unable to request data. ', error);
+            return ('Unable to request data. ', error);
+            
         }
     }
 }

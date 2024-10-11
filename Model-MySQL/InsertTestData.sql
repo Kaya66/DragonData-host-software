@@ -1,5 +1,5 @@
-USE Acore;
+USE ACore;
 SHOW COLUMNS FROM words;
-INSERT INTO words (word, english_word, Word_Definition, pos)
-values ( "Tiru", "Bird", "An Avian of Earth", "Noun" );
+INSERT INTO words (word, english_word, definition, pos)
+values ( "Toki", "Pona", "a smol conlang", "verb" );
 
