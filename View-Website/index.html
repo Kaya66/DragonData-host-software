@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>API Data Display</title>
+    </head>
+    <body>
+        <h1>Data from API</h1>
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:3000/api/async.json');
+                const myJson = await response.json();
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } 
+        }
+        fetchData()
+            .then((myJson)=> {console.log(myJson)});
+
+        document.getElementById("api").innerHTML=myJson;
+        
+
+    </script>
+            <div>
+                <p id="api"></p>
+            </div>
+    </body>
+</html>

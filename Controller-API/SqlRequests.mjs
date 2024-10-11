@@ -35,8 +35,6 @@ const words = sequelize.define(
 
 
 export class SQLrequest {
-    //Implement CRUD
-    //Create, Read, Update, Delete
 
     static async create(acore, eng, def, speech){
         try {
@@ -54,23 +52,11 @@ export class SQLrequest {
             }
     }
 
-    static async read(req, col){
-        try {
-            const RESULT = await sequelize.query(`SELECT * FROM words WHERE 
-                ${["A_Core_Word", "Eng_Word", "Word_Definition", "Part_Of_Speech"][col - 1]} = "${req}"`, {
-                type: QueryTypes.SELECT,
-            });
-            console.log(RESULT);
-        }catch (error) {
-            console.error('Unable to request data. ', error);
-            }
-    }
 
     static async readAll(){
         try {
-            const RESULT = await sequelize.query(`SELECT * FROM words`, {type: QueryTypes.SELECT});
+            const RESULT = await sequelize.query(`SELECT * FROM ACore.words`, {type: QueryTypes.SELECT});
             return RESULT;
-            console.log(RESULT);
         }catch (error) {
             return ('Unable to request data. ', error);
             
