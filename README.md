@@ -10,7 +10,7 @@ Sanatized input from the client and/or pre configured queries for the database t
 Coming soon~
 
 ### Current project status
-[Wiki - Project requirements page.](https://github.com/Kaya66/Avali_Core_Web/wiki)
+[Wiki - Project requirements page.](https://github.com/Kaya66/DragonData-host-software/wiki)
 
 [Feature Development Progress towards verison 1.0](https://github.com/users/Kaya66/projects/2/views/1)
 
