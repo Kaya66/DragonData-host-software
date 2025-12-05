@@ -1,31 +1,23 @@
 import { Sequelize, DataTypes, QueryTypes } from 'sequelize';
 
 
-const sequelize = new Sequelize('ACore', 'ApiUser', '@piUs3rP@ssw0rd', {
+const sequelize = new Sequelize('DragonData', 'ApiUser', '@piUs3rP@ssw0rd', {
     host: '192.168.2.110',
     dialect: 'mysql'
 });
 
-const words = sequelize.define(
-    'Words',
+const DataModel = sequelize.define(
+    'data',
     {
-        word:{
+        url:{
             type: DataTypes.STRING,
-            AllowNull: false,
+            allowNull: false,
             primaryKey: true,
         },
-        english_word:{
+        description:{
             type: DataTypes.STRING,
-            AllowNull: true,
-        },
-        definition:{
-            type: DataTypes.STRING,
-            AllowNull: false,
-        },
-        pos: {
-            type: DataTypes.ENUM('verb', 'noun', 'adjective', 'adverb', 'interjection'),
-            allowNull: false
-          }
+            allowNull: true,
+        }
     },
     {
         freezeTableName: true,
@@ -33,33 +25,55 @@ const words = sequelize.define(
     }
 );
 
+const AuthModel = sequelize.define(
+    'login',
+    {
+        username:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        password:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        APIkey:{
+            type: DataTypes.STRING,
+            allowNull: true
+        }
+    },
+    {
+        tableName: 'logins',
+        schema: 'Auth',
+        freezeTableName: true,
+        timestamps: false
+
+    }
+);
+
 
 export class SQLrequest {
 
-    static async create(acore, eng, def, speech){
+    static async createLogin(username, password){
         try {
-            const RESULT = await LanguageModel.create(
+            const RESULT = await AuthModel.create(
                 {
-                    word: acore,
-                    english_word: eng,
-                    definition: def,
-                    pos: speech
+                    username: username,
+                    password: password
                 }
             );
             console.log(RESULT);
         }catch (error) {
-            console.error('Unable to create new entry. ', error);
+            console.error('Unable to create new user account. ', error);
             }
     }
 
-
     static async readAll(){
         try {
-            const RESULT = await sequelize.query(`SELECT * FROM ACore.words`, {type: QueryTypes.SELECT});
+            const RESULT = await sequelize.query(`SELECT * FROM DragonData.Data`, {type: QueryTypes.SELECT});
             return RESULT;
+
         }catch (error) {
-            return ('Unable to request data. ', error);
-            
+            return ('Unable to request data from sql read query.', error);
         }
     }
 }

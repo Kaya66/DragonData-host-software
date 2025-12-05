@@ -1,5 +1,4 @@
 import express from 'express';
-//import cors from 'cors';
 import { SQLrequest } from './SqlRequests.mjs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -21,9 +20,6 @@ api.get('/api/async.json', async (req, res) => {
             console.log(result);
             res.json(result);
         });
-        
-        
-
 });
 
 
