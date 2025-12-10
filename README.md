@@ -17,3 +17,6 @@ Coming soon~
 
 ### MySQL folder:
 Contains scripts for properly setting up the MySQL database.
+
+### Dependencies:
+Install NPM then run the dependencies.sh script.

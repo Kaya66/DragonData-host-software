@@ -1,5 +1,5 @@
 #!/bin/bash
 #Setup script for debian based linux systems
-sudo dnf install npm &&
+# NPM must be installed 
 npm install node mysql2 sequelize express
 #dotenv removed
