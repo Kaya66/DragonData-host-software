@@ -1,5 +1,5 @@
 # A simple 3 tier software MERN package using MySQL instead of MongoDB
-This is the software stack I am developing for my personal server.
+This is the software stack I am developing for my personal server. 
 It is based on the server view model architecture and will contain the following:
 MySQL backend for data storage. 
 Crud operations for interacting with the MySQL database via the controller. 
