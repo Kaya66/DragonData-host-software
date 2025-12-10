@@ -1,4 +1,4 @@
-# A simple 3 tier software MERN package using MySQL instead of MongoDB.
+# A simple 3 tier software MERN package using MySQL instead of MongoDB
 This is the software stack I am developing for my personal server. 
 It is based on the server view model architecture and will contain the following:
 MySQL backend for data storage. 
@@ -17,3 +17,6 @@ Coming soon~
 
 ### MySQL folder:
 Contains scripts for properly setting up the MySQL database.
+
+### Dependencies:
+Install NPM then run the dependencies.sh script.
