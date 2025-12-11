@@ -1,5 +1,5 @@
 import express from 'express';
-import { SQLrequest } from './SqlRequests.mjs';
+import { SQLrequest } from '../Database/SqlRequests.mjs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
