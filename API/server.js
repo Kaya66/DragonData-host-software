@@ -20,6 +20,7 @@ api.get('/async.json', async (req, res) => {
         });
 });
 
+
 api.get('/url', (req, res) => {
     res.json(data);
 });
@@ -28,6 +29,7 @@ api.get('/url', (req, res) => {
 api.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Website/index.html'));
 });
+
 //start server
 api.listen(port, '0.0.0.0', () => {
     console.log(`API server running at http://localhost:${port}`);

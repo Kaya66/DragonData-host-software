@@ -1,10 +1,7 @@
 All acquired from npm
 
-<API CONTROLLER>
-// removed dotenv
+express
 mysql2
 node
 sequelize
-
-<View-Website>
 react
