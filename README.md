@@ -1,6 +1,6 @@
-# A simple 3 tier software MERN package using MySQL instead of MongoDB
+# Web host designed for MySQL, nextJS, React. 
 This is the software stack I am developing for my personal server. 
-It is based on the server view model architecture and will contain the following:
+It is based very loosely on the server MVC architecture and will contain the following:
 MySQL backend for data storage. 
 Crud operations for interacting with the MySQL database via the controller. 
 Sanatized input from the client and/or pre configured queries for the database to return data to the user. 
