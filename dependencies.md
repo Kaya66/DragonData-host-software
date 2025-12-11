@@ -5,3 +5,4 @@ mysql2
 node
 sequelize
 react
+next
