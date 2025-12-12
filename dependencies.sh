@@ -1,5 +1,10 @@
 #!/bin/bash
-#Setup script for debian based linux systems
+#Setup script
 # NPM must be installed 
-sudo npm install node mysql2 sequelize next react
-#dotenv removed
+FILE=/usr/bin/node
+if test -f "$FILE"; then
+echo "$FILE exists."; else
+echo "Node does not exist."
+echo "Please insdall Node/npm to proceed"
+
+sudo npm install
