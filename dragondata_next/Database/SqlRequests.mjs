@@ -1,6 +1,8 @@
 import { Sequelize, DataTypes, QueryTypes } from 'sequelize';
 
 
+//THIS IS NON-ACTIVE DATA. 
+//These credentials are changed on Live Server
 const sequelize = new Sequelize('DragonData', 'ApiUser', '@piUs3rP@ssw0rd', {
     host: '192.168.2.110',
     dialect: 'mysql'
