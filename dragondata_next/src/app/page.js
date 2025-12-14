@@ -1,12 +1,16 @@
 import Image from "next/image";
-import Test from "./Modules/Test.js"
+import NavBar from "./Modules/NavBar.js";
+
+
+
 
 export default function Home() {
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+        //Flex container for main page
+    <div className="flex min-h-screen items-center font-sans">
+      <NavBar></NavBar>
         <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 bg-white dark:bg-black sm:items-start">
-          <Test></Test>
           <Image
           className="dark:invert"
           src="/next.svg"
