@@ -3,13 +3,13 @@
 export default function NavBar() {
     return (
         <section>
-            <div class="NavBar">
-                <div class="Flex_Row">
-                    <div class="NavItem_A">
+            <div className="bg-white dark:bg-gray-800 rounded-lg px-6 ">
+                <div className="">
+                    <div className="">
                         <p>Nav A</p>
                     </div>
 
-                    <div class="NaviItem_B">
+                    <div className="">
                      <p>Nav B</p>
                     </div>
                 </div>
